@@ -39,7 +39,8 @@ const Footer = () => (
         </div>
 
         {/* Divider */}
-        <hr className="border-[#748FB5] my-8 w-[1320px]  opacity-35 bg-[#37434c] mx-auto" />
+        <hr className="border-[#748FB5] my-8 w-full max-w-[1320px] opacity-35 bg-[#37434c] mx-auto" />
+
 
         {/* Bottom Section */}
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
