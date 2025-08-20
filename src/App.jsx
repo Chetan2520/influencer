@@ -6,7 +6,7 @@ import Navbar from './component/Navbar';
 import Footer from './component/Footer';
 import ContactUs from './page/Contact';
 import InfluencerServices from './page/Service';
-// import CreativeSpark from './page/About';
+import CreativeSpark from './page/About';
 
 // --- Placeholder components for demonstration ---
 const ProductPage = ({ type }) => (
@@ -33,7 +33,7 @@ const App = () => {
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/services" element={<InfluencerServices />} />
-          {/* <Route path="/about" element={<CreativeSpark />} /> */}
+          <Route path="/about" element={<CreativeSpark />} />
           <Route path="/contact" element={<ContactUs />} />
 
           {/* Routes for the "Product" dropdown */}
