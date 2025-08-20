@@ -113,10 +113,10 @@ const CreativeSpark = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-pink-500 leading-tight mb-6">
               Your Brand's Creative Spark in the Digital World
             </h1>
-            <p className="text-gray-300 mb-4">
+            <p className="text-black mb-4">
               We're more than influencer marketers — we're your strategic storytellers. Our mission goes far beyond connecting brands with audiences; we craft experiences that resonate, inspire, and last well beyond a single campaign.
             </p>
-            <p className="text-gray-300 mb-8">
+            <p className="text-black mb-8">
               What sets us apart is our commitment to creating campaigns that don't just perform; they inspire conversation, spark emotion, and leave a lasting mark on your audience. With us, your brand isn't simply part of the digital noise — it becomes a story worth remembering.
             </p>
             <motion.div 
