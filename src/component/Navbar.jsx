@@ -5,11 +5,12 @@ import { NavLink } from "react-router-dom";
 const NAV_ITEMS = [
     { name: "Home", path: "/" },
     {
-        name: "Product",
+        name: "Bucket",
+        path: "/bucket",
         dropdown: [
-            { name: "Ad", path: "/product/ad" },
-            { name: "Marketplace", path: "/product/marketplace" },
-            { name: "Analytics", path: "/product/analytics" },
+            { name: "Bucket", path: "/bucket" },
+            { name: "Comedy", path: "/comedy" },
+            { name: "Catherine", path: "/catherine" },
         ],
     },
     { name: "Services", path: "/services" },
@@ -20,11 +21,23 @@ const NAV_ITEMS = [
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState("");
+    const [hoverTimeout, setHoverTimeout] = useState(null);
     const [mobileDropdown, setMobileDropdown] = useState("");
     const [joinDropdown, setJoinDropdown] = useState(false);
     const [joinDropdownMobile, setJoinDropdownMobile] = useState(false);
 
-    // No longer need activeMain and activeSub states, NavLink handles it!
+    // Handle hover with delay for smoothness
+    const handleMouseEnter = (name) => {
+        if (hoverTimeout) clearTimeout(hoverTimeout);
+        setOpenDropdown(name);
+    };
+
+    const handleMouseLeave = () => {
+        const timeout = setTimeout(() => {
+            setOpenDropdown("");
+        }, 200); // <-- delay before closing
+        setHoverTimeout(timeout);
+    };
 
     // ------ Desktop Nav Items ------
     const renderNavItems = () =>
@@ -32,8 +45,8 @@ const Navbar = () => {
             <li
                 key={item.name}
                 className="relative group"
-                onMouseEnter={() => item.dropdown && setOpenDropdown(item.name)}
-                onMouseLeave={() => item.dropdown && setOpenDropdown("")}
+                onMouseEnter={() => item.dropdown && handleMouseEnter(item.name)}
+                onMouseLeave={() => item.dropdown && handleMouseLeave()}
             >
                 {item.dropdown ? (
                     <>
@@ -49,31 +62,39 @@ const Navbar = () => {
                                 <path d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        {openDropdown === item.name && (
-                            <div className="absolute left-0 mt-2 w-44 cursor-pointer bg-white rounded-xl shadow-lg z-20">
-                                {item.dropdown.map((opt) => (
-                                    <NavLink
-                                        key={opt.name}
-                                        to={opt.path}
-                                        onClick={() => setOpenDropdown("")}
-                                        className={({ isActive }) =>
-                                            `block w-full text-left px-6 py-3 cursor-pointer ${isActive
+                        <div
+                            className={`absolute left-0 mt-2 w-44 bg-white rounded-xl shadow-lg z-20 transition-all duration-300 ease-in-out transform ${
+                                openDropdown === item.name
+                                    ? "opacity-100 translate-y-0 visible"
+                                    : "opacity-0 -translate-y-2 invisible"
+                            }`}
+                        >
+                            {item.dropdown.map((opt) => (
+                                <NavLink
+                                    key={opt.name}
+                                    to={opt.path}
+                                    onClick={() => setOpenDropdown("")}
+                                    className={({ isActive }) =>
+                                        `block w-full text-left px-6 py-3 cursor-pointer ${
+                                            isActive
                                                 ? "text-[#D62976] bg-pink-50"
                                                 : "text-[#1E252B] hover:text-[#D62976] hover:bg-pink-50"
-                                            }`
-                                        }
-                                    >
-                                        {opt.name}
-                                    </NavLink>
-                                ))}
-                            </div>
-                        )}
+                                        }`
+                                    }
+                                >
+                                    {opt.name}
+                                </NavLink>
+                            ))}
+                        </div>
                     </>
                 ) : (
                     <NavLink
                         to={item.path}
                         className={({ isActive }) =>
-                            `transition-colors cursor-pointer ${isActive ? "text-[#D62976]" : "text-[#1E252B] group-hover:text-[#D62976]"
+                            `transition-colors cursor-pointer ${
+                                isActive
+                                    ? "text-[#D62976]"
+                                    : "text-[#1E252B] group-hover:text-[#D62976]"
                             }`
                         }
                     >
@@ -92,7 +113,9 @@ const Navbar = () => {
                         <button
                             className="font-bold text-lg flex items-center w-full justify-between text-gray-800 group-hover:text-[#D62976]"
                             onClick={() =>
-                                setMobileDropdown(mobileDropdown === item.name ? "" : item.name)
+                                setMobileDropdown(
+                                    mobileDropdown === item.name ? "" : item.name
+                                )
                             }
                         >
                             {item.name}
@@ -117,9 +140,10 @@ const Navbar = () => {
                                             setMenuOpen(false);
                                         }}
                                         className={({ isActive }) =>
-                                            `block w-full text-left px-6 py-3 font-semibold ${isActive
-                                                ? "text-[#D62976] bg-pink-50"
-                                                : "text-gray-800 hover:text-[#D62976] hover:bg-pink-50"
+                                            `block w-full text-left px-6 py-3 font-semibold ${
+                                                isActive
+                                                    ? "text-[#D62976] bg-pink-50"
+                                                    : "text-gray-800 hover:text-[#D62976] hover:bg-pink-50"
                                             }`
                                         }
                                     >
@@ -134,7 +158,10 @@ const Navbar = () => {
                         to={item.path}
                         onClick={() => setMenuOpen(false)}
                         className={({ isActive }) =>
-                            `font-bold text-lg transition-colors w-full text-left ${isActive ? "text-[#D62976]" : "text-gray-800 group-hover:text-[#D62976]"
+                            `font-bold text-lg transition-colors w-full text-left ${
+                                isActive
+                                    ? "text-[#D62976]"
+                                    : "text-gray-800 group-hover:text-[#D62976]"
                             }`
                         }
                     >

@@ -7,6 +7,7 @@ import Footer from './component/Footer';
 import ContactUs from './page/Contact';
 import InfluencerServices from './page/Service';
 import CreativeSpark from './page/About';
+import Bucket from './page/Bucket';
 
 // --- Placeholder components for demonstration ---
 const ProductPage = ({ type }) => (
@@ -37,9 +38,9 @@ const App = () => {
           <Route path="/contact" element={<ContactUs />} />
 
           {/* Routes for the "Product" dropdown */}
-          <Route path="/product/ad" element={<ProductPage type="Ad" />} />
-          <Route path="/product/marketplace" element={<ProductPage type="Marketplace" />} />
-          <Route path="/product/analytics" element={<ProductPage type="Analytics" />} />
+          <Route path="/bucket" element={<Bucket />} />
+          {/* <Route path="/product/marketplace" element={<ProductPage type="Marketplace" />} /> */}
+          {/* <Route path="/product/analytics" element={<ProductPage type="Analytics" />} /> */}
 
           {/* <Route path="/join/influencer" element={<JoinPage type="Influencer" />} />
           <Route path="/join/brand" element={<JoinPage type="Brand" />} /> */}
