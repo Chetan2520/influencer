@@ -171,10 +171,10 @@ const cardVariants = {
 
 export default function FeaturedInfluencers() {
     return (
-        <section className="w-full px-4 py-10">
+        <section className="w-full px-4 py-6 md:py-10">
             <motion.h2
-                className="font-inter font-bold text-[24px] leading-[100%] tracking-[0] capitalize 
-             text-gray-900 mb-6 md:mb-8 border-b border-gray-200 pb-2"
+                className="font-inter font-bold text-lg sm:text-xl md:text-[24px] leading-[100%] tracking-[0] capitalize 
+             text-gray-900 mb-4 sm:mb-6 md:mb-8 border-b border-gray-200 pb-2"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -182,7 +182,7 @@ export default function FeaturedInfluencers() {
                 Featured Influencers
             </motion.h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[20px]">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-[20px] justify-items-center">
                 {influencers.map((inf, i) => (
                     <motion.div
                         key={i}
@@ -190,7 +190,7 @@ export default function FeaturedInfluencers() {
                         initial="hidden"
                         animate="visible"
                         variants={cardVariants}
-                        className="relative bg-[#f5fbff] rounded-[24px] p-4 flex flex-col items-center shadow-lg w-[256px] h-[321px] border border-gray-200 opacity-100"
+                        className="relative bg-[#f5fbff] rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] p-3 sm:p-4 flex flex-col items-center shadow-lg w-full max-w-[240px] sm:max-w-[250px] lg:w-[256px] h-[230px] sm:h-[300px] lg:h-[321px] border border-gray-200 opacity-100"
                         whileHover={{ scale: 1.03 }}
                     >
                         {/* Top Picks Ribbon */}
@@ -198,10 +198,8 @@ export default function FeaturedInfluencers() {
                             <img
                                 src="/tag.png"
                                 alt="Top Picks Ribbon"
-                                className="absolute top-0 right-0 z-5 pointer-events-none select-none"
+                                className="absolute top-0 right-0 z-5 pointer-events-none select-none w-[80px] sm:w-[90px] lg:w-[110px] h-auto"
                                 style={{
-                                    width: '110px',
-                                    height: 'auto',
                                     userSelect: 'none',
                                     pointerEvents: 'none'
                                 }}
@@ -209,20 +207,21 @@ export default function FeaturedInfluencers() {
                         )}
 
                         {/* Influencer Image */}
-                        <div className="w-full aspect-square rounded-[12px] overflow-hidden mb-4 relative flex items-center justify-center bg-gray-200">
+                        <div className="w-full aspect-square rounded-[8px] sm:rounded-[10px] lg:rounded-[12px] overflow-hidden mb-3 sm:mb-4 relative flex items-center justify-center bg-gray-200">
                             <img
                                 src={inf.image}
                                 alt={inf.name}
                                 className="object-cover w-full h-full"
                             />
                             {/* Play Button */}
-                            <button className="absolute bottom-3 right-3 rounded-full cursor-pointer p-2 shadow-lg transition hover:bg-white/40">
+                            <button className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 rounded-full cursor-pointer p-1 sm:p-2 shadow-lg transition hover:bg-white/40">
                                 <svg
-                                    width="48"
-                                    height="48"
+                                    width="36"
+                                    height="36"
                                     viewBox="0 0 48 48"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
+                                    className="sm:w-[42px] sm:h-[42px] lg:w-[48px] lg:h-[48px]"
                                 >
                                     <circle
                                         cx="24"
@@ -237,19 +236,64 @@ export default function FeaturedInfluencers() {
                                     />
                                 </svg>
                             </button>
-
                         </div>
+
                         {/* Influencer Name & Badge */}
                         <div className="w-full text-left">
-                            <h3 className="font-['Poppins'] font-semibold text-[24px] leading-[100%] tracking-[0] text-[#626262] mb-1 flex items-center">
+                            <h3 className="font-['Poppins'] font-semibold text-lg sm:text-xl lg:text-[24px] leading-[100%] tracking-[0] text-[#626262] mb-1 flex items-center">
                                 {inf.name}
-                                {inf.badge}
+                                <span className="inline-flex items-center ml-1 sm:ml-2">
+                                    <svg
+                                        width="20"
+                                        height="18"
+                                        viewBox="0 0 26 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="inline sm:w-[22px] sm:h-[20px] lg:w-[26px] lg:h-[24px]"
+                                    >
+                                        <path
+                                            d="M23.6713 7.81949L20.1436 2.40449C19.728 1.57199 18.4844 1.15649 17.6547 1.15649H6.44666C5.61704 1.15649 4.37186 1.78049 3.9578 2.40449L0.433037 7.81949C0.0174797 8.65199 0.0174797 9.69299 0.64231 10.3185L11.0163 21.3525C11.6381 21.9795 12.4677 21.7695 13.0896 21.3525L23.4636 10.3185C24.0884 9.69299 24.2947 8.44349 23.6728 7.81949H23.6713ZM18.2766 6.15449L12.4663 15.5235H9.56184L8.52295 6.98549C8.52295 6.56849 8.31666 6.36149 8.31666 6.15449C8.10739 5.94449 7.90111 5.94449 7.69333 5.94449L7.9026 5.52899H10.5977C10.804 5.52899 11.0133 5.52899 11.2196 5.73899C11.4289 5.94449 11.4289 6.15449 11.4289 6.36149L12.0492 12.399L15.1629 6.77699V6.35999C15.1629 6.15299 15.1629 6.15299 14.9551 5.94299C14.7458 5.94299 14.7458 5.73599 14.541 5.73599L14.7473 5.31899H17.8595C18.0658 5.31899 18.2751 5.31899 18.2751 5.52749C18.2751 5.73749 18.4814 5.94299 18.2751 6.15299H18.2766V6.15449Z"
+                                            fill={i === 2 ? "url(#paint0_linear_263_5029)" : "url(#paint0_linear_263_4713)"}
+                                        />
+                                        <defs>
+                                            <linearGradient
+                                                id="paint0_linear_263_4713"
+                                                x1="12.096"
+                                                y1="1.15649"
+                                                x2="12.096"
+                                                y2="21.7479"
+                                                gradientUnits="userSpaceOnUse"
+                                            >
+                                                <stop stopColor="white" />
+                                                <stop offset="1" stopColor="#637F97" />
+                                            </linearGradient>
+                                            <linearGradient
+                                                id="paint0_linear_263_5029"
+                                                x1="12.096"
+                                                y1="1.15649"
+                                                x2="12.096"
+                                                y2="21.7479"
+                                                gradientUnits="userSpaceOnUse"
+                                            >
+                                                <stop stopColor="#FFCA5B" />
+                                                <stop offset="1" stopColor="#D79100" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </span>
                             </h3>
 
-                            <p className="font-['Inter'] font-normal text-[14px] leading-[100%] tracking-[0] text-[#7E95AA] flex items-center">
+                            <p className="font-['Inter'] font-normal text-xs sm:text-sm lg:text-[14px] leading-[100%] tracking-[0] text-[#7E95AA] flex items-center">
                                 {inf.age} years old
-                                <div className="pl-2">
-                                    <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <div className="pl-1 sm:pl-2">
+                                    <svg
+                                        width="16"
+                                        height="12"
+                                        viewBox="0 0 21 15"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="sm:w-[18px] sm:h-[13px] lg:w-[21px] lg:h-[15px]"
+                                    >
                                         <rect width="21" height="15" rx="3" fill="white" />
                                         <path d="M10.5 11C12.433 11 14 9.433 14 7.5C14 5.567 12.433 4 10.5 4C8.567 4 7 5.567 7 7.5C7 9.433 8.567 11 10.5 11Z" fill="#D62976" />
                                     </svg>

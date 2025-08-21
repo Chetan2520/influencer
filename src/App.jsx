@@ -8,6 +8,7 @@ import ContactUs from './page/Contact';
 import InfluencerServices from './page/Service';
 import CreativeSpark from './page/About';
 import Bucket from './page/Bucket';
+// import Catherine from './page/Catherine';
 
 // --- Placeholder components for demonstration ---
 const ProductPage = ({ type }) => (
@@ -39,7 +40,7 @@ const App = () => {
 
           {/* Routes for the "Product" dropdown */}
           <Route path="/bucket" element={<Bucket />} />
-          {/* <Route path="/product/marketplace" element={<ProductPage type="Marketplace" />} /> */}
+          {/* <Route path="/catherine" element={<Catherine type="Catherine" />} /> */}
           {/* <Route path="/product/analytics" element={<ProductPage type="Analytics" />} /> */}
 
           {/* <Route path="/join/influencer" element={<JoinPage type="Influencer" />} />
