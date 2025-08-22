@@ -49,7 +49,6 @@ const item = {
 
 export default function Catherine() {
     return (
-        // RESPONSIVE CHANGE: Added responsive horizontal padding for better spacing on different screen sizes.
         <div className="bg-white min-h-screen px-4 sm:px-6 lg:px-8 py-6 max-w-7xl mx-auto">
             <motion.nav
                 className="flex items-center justify-between p-4 md:p-6"
@@ -65,14 +64,12 @@ export default function Catherine() {
             </motion.nav>
 
             {/* Profile Card + Bio Row */}
-            {/* RESPONSIVE CHANGE: **items-center** centers the content on mobile (column view), **md:items-start** aligns it to the top on larger screens (row view). */}
             <div className="flex flex-col md:flex-row gap-8 mb-8 items-center md:items-start">
                 {/* Profile Card (Left) */}
                 <motion.div
                     initial={{ opacity: 0, y: 30, scale: 0.96 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ type: "spring", duration: 0.7 }}
-                    // RESPONSIVE CHANGE: The card is centered on mobile via the flex parent. Widths and heights are adjusted for screen size.
                     className="relative bg-[#F3F9FF] rounded-[16px] sm:rounded-[20px] p-3 sm:p-4 flex flex-col shadow-lg w-full max-w-[256px] h-auto border border-gray-200"
                 >
                     <div className="relative w-full mb-3">
@@ -112,7 +109,6 @@ export default function Catherine() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.7, type: "spring" }}
-                    // RESPONSIVE CHANGE: Adjusted font size and line height for better readability on mobile.
                     className="flex-1 text-[#000000] font-['Inter'] font-normal text-base sm:text-lg md:text-[23px] leading-relaxed md:leading-[36px]"
                 >
                     I’m a passionate content creator dedicated to inspiring and connecting with people through authentic storytelling and visually engaging content. With a focus on [your niche – e.g., fashion, travel, fitness, lifestyle, beauty], I share experiences, tips, and ideas that encourage my audience to explore new possibilities and embrace their unique style.<br /><br />
@@ -131,15 +127,12 @@ export default function Catherine() {
                     <motion.div
                         key={stat.platform}
                         variants={item}
-                        // RESPONSIVE CHANGE: Removed fixed width, added **w-full** and **max-w-[358px]** to prevent overflow on small screens. **mx-auto** centers it in the grid column.
                         className="flex bg-white rounded-[10px] p-3 w-full max-w-[358px] mx-auto h-auto sm:h-[136px] items-center"
                         style={{ boxShadow: '0px 20px 50px 0px #0000001A' }}
                     >
-                        {/* RESPONSIVE CHANGE: Image width is smaller on mobile and grows on larger screens. */}
                         <img src={stat.icon} alt={stat.platform} className="w-[120px] sm:w-[160px] h-auto object-contain" />
                         <div className="w-[1px] bg-gray-300 mx-4 h-full" />
                         <div className="flex-1 flex flex-col justify-center items-center h-full text-center">
-                            {/* RESPONSIVE CHANGE: Font size is now smaller on mobile. */}
                             <div className="font-questrial font-normal text-2xl sm:text-[28.1px] leading-tight text-[#1D1F22]">
                                 {stat.count}
                             </div>
@@ -154,7 +147,7 @@ export default function Catherine() {
                 ))}
             </motion.div>
 
-            {/* Videos Section - This component is already responsive from previous edits */}
+            {/* Videos Section */}
             <VideoGallery />
             <br />
             <br />
