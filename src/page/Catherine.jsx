@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import VideoGallery from "../component/Video";
+import CountUp from "react-countup";
+
 
 // Dummy data for demonstration
 const socialStats = [
@@ -47,6 +49,17 @@ const item = {
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70 } },
 };
 
+const parseCount = (countStr) => {
+  let number = parseFloat(countStr);
+  if (countStr.toUpperCase().includes("M")) {
+    number *= 1_000_000;
+  } else if (countStr.toUpperCase().includes("K")) {
+    number *= 1_000;
+  }
+  return number;
+};
+
+
 export default function Catherine() {
     return (
         <div className="bg-white min-h-screen px-4 sm:px-6 lg:px-8 py-6 max-w-7xl mx-auto">
@@ -56,7 +69,7 @@ export default function Catherine() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                <div className="flex items-center space-x-2 font-inter font-medium text-xs sm:text-[13px] leading-[100%] tracking-[0] text-[#D62976]">
+                <div className="flex items-center space-x-2 font-inter font-medium text-[18px] sm:text-[18px] leading-[100%] tracking-[0] text-[#D62976]">
                     <span>Home</span>
                     <span>›</span>
                     <span>Catherine</span>
@@ -134,8 +147,19 @@ export default function Catherine() {
                         <div className="w-[1px] bg-gray-300 mx-4 h-full" />
                         <div className="flex-1 flex flex-col justify-center items-center h-full text-center">
                             <div className="font-questrial font-normal text-2xl sm:text-[28.1px] leading-tight text-[#1D1F22]">
-                                {stat.count}
-                            </div>
+  <CountUp
+    start={0}
+    end={parseCount(stat.count)}
+    duration={2}
+    separator=","
+    formattingFn={(value) => {
+      if (value >= 1_000_000) return (value / 1_000_000).toFixed(1) + "M+";
+      if (value >= 1_000) return (value / 1_000).toFixed(0) + "K+";
+      return value;
+    }}
+  />
+</div>
+
                             <div className="font-inter font-semibold text-sm leading-tight text-[#1D1F22] my-2">
                                 {stat.label}
                             </div>

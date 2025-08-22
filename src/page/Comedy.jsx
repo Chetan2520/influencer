@@ -114,7 +114,7 @@ const ComedyPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex items-center space-x-2 font-inter font-medium text-xs sm:text-[13px] leading-[100%] tracking-[0] text-[#D62976]">
+          <div className="flex items-center space-x-2 font-inter font-medium text-[18px] sm:text-[18px] leading-[100%] tracking-[0] text-[#D62976]">
             <span>Home</span>
             <span>›</span>
             <span>Comedy</span>
@@ -130,11 +130,11 @@ const ComedyPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <h1 className="font-poppins font-bold text-[48px] leading-[62.4px] text-[#D62976] mb-6">
+            <h1 className="font-poppins font-bold text-[48px] leading-[62.4px] text-[#D62976] mb-6 sm:mt-0 mt-4">
               Top Comedy<br /> Influencers in India
             </h1>
 
-            <p className="font-Inter font-normal text-[24px] leading-[24px] text-[#00001E99]">
+            <p className="font-Inter font-normal text-[24px] leading-[28px] text-[#00001E99]">
               Want to sprinkle some fun into your brand and give your audience a good laugh?
               Enter the world of Instagram comedians here to absolutely slay.
               <br />

@@ -71,7 +71,7 @@ const InfluencerMarketplace = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                <div className="flex items-center space-x-2 font-inter font-medium text-xs sm:text-[13px] leading-[100%] tracking-[0] text-[#D62976]">
+                <div className="flex items-center space-x-2 font-inter font-medium text-[18px] sm:text-[18px    ] leading-[100%] tracking-[0] text-[#D62976]">
                     <span>Home</span>
                     <span>›</span>
                     <span>Bucket</span>
