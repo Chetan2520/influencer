@@ -110,10 +110,16 @@ const CreativeSpark = () => {
         <div className="w-full overflow-x-hidden">
             {/* Top Section */}
             <section className="bg-white text-black max-w-7xl mx-auto">
-                <div className="container mx-auto flex flex-col md:flex-row items-center px-6 py-16">
+                <div className="container mx-auto flex flex-col md:flex-row items-start px-6 py-16">
+
+                    {/* Mobile-only heading at the top */}
+                    <h1 className="font-poppins font-semibold text-[40px] leading-[48px] text-[#D62976] mb-6 block md:hidden text-center">
+                        Your Brand's Creative Spark in the Digital World
+                    </h1>
+
                     {/* Image Column */}
                     <motion.div
-                        className="w-full md:w-1/2 mb-10 md:mb-0"
+                        className="w-full md:w-1/2 mb-6 md:mb-0"
                         variants={fadeInLeft}
                         initial="hidden"
                         whileInView="visible"
@@ -125,18 +131,21 @@ const CreativeSpark = () => {
                             className="w-full h-auto object-cover"
                         />
                     </motion.div>
-                    {/* Text Content Column */}
+
+                    {/* Desktop Text + Features Column */}
                     <motion.div
-                        className="w-full md:w-1/2 md:pl-12"
+                        className="w-full md:w-1/2 md:pl-12 flex flex-col"
                         variants={fadeInRight}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
-                        <h1 className="font-poppins font-semibold text-[40px] md:text-[48px] leading-[62.4px] text-[#D62976] mb-6">
+                        {/* Desktop heading */}
+                        <h1 className="font-poppins font-semibold text-[40px] md:text-[48px] leading-[62.4px] text-[#D62976] mb-6 hidden md:block">
                             Your Brand's Creative Spark in the Digital World
                         </h1>
 
+                        {/* Paragraphs */}
                         <p className="font-inter font-normal text-[16px] leading-[18px] tracking-[0px] text-[#00001E99] mb-4">
                             We’re more than influencer marketers — we’re your strategic storytellers. Our mission goes far beyond connecting brands with audiences; we craft experiences that resonate, inspire, and last well beyond a single campaign.
                         </p>
@@ -145,6 +154,7 @@ const CreativeSpark = () => {
                             What sets us apart is our commitment to creating campaigns that don't just perform; they inspire conversation, spark emotion, and leave a lasting mark on your audience. With us, your brand isn't simply part of the digital noise — it becomes a story worth remembering.
                         </p>
 
+                        {/* Features Grid */}
                         <motion.div
                             className="grid grid-cols-1 sm:grid-cols-2"
                             variants={containerVariants}
@@ -180,6 +190,7 @@ const CreativeSpark = () => {
                     </motion.div>
                 </div>
             </section>
+
 
             {/* Bottom Section */}
             <section className="bg-[#FFE2EF]">

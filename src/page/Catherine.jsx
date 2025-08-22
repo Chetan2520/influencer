@@ -50,13 +50,13 @@ const item = {
 };
 
 const parseCount = (countStr) => {
-  let number = parseFloat(countStr);
-  if (countStr.toUpperCase().includes("M")) {
-    number *= 1_000_000;
-  } else if (countStr.toUpperCase().includes("K")) {
-    number *= 1_000;
-  }
-  return number;
+    let number = parseFloat(countStr);
+    if (countStr.toUpperCase().includes("M")) {
+        number *= 1_000_000;
+    } else if (countStr.toUpperCase().includes("K")) {
+        number *= 1_000;
+    }
+    return number;
 };
 
 
@@ -147,18 +147,18 @@ export default function Catherine() {
                         <div className="w-[1px] bg-gray-300 mx-4 h-full" />
                         <div className="flex-1 flex flex-col justify-center items-center h-full text-center">
                             <div className="font-questrial font-normal text-2xl sm:text-[28.1px] leading-tight text-[#1D1F22]">
-  <CountUp
-    start={0}
-    end={parseCount(stat.count)}
-    duration={2}
-    separator=","
-    formattingFn={(value) => {
-      if (value >= 1_000_000) return (value / 1_000_000).toFixed(1) + "M+";
-      if (value >= 1_000) return (value / 1_000).toFixed(0) + "K+";
-      return value;
-    }}
-  />
-</div>
+                                <CountUp
+                                    start={0}
+                                    end={parseCount(stat.count)}
+                                    duration={2}
+                                    separator=","
+                                    formattingFn={(value) => {
+                                        if (value >= 1_000_000) return (value / 1_000_000).toFixed(1) + "M+";
+                                        if (value >= 1_000) return (value / 1_000).toFixed(0) + "K+";
+                                        return value;
+                                    }}
+                                />
+                            </div>
 
                             <div className="font-inter font-semibold text-sm leading-tight text-[#1D1F22] my-2">
                                 {stat.label}

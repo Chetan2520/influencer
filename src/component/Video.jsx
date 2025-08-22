@@ -144,57 +144,46 @@ const VideoGallery = () => {
         <div className="min-h-screen bg-white font-sans p-4 sm:p-6 lg:p-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
-                <header className="flex justify-between items-center mb-8 border-b-2 border-gray-200">
+                <header className="flex justify-between items-center mb-8 border-b-2 border-gray-200 pb-2">
                     <h1 className="font-['Inter'] font-bold text-[24px] leading-none capitalize text-[#242424]">
                         Videos
                     </h1>
-
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-[135px] h-[44px] bg-[#D62976] cursor-pointer text-white font-['Inter'] font-semibold rounded-[16px] py-[9px] px-[23px] mb-2 shadow-lg hover:bg-pink-600 transition-colors duration-300"
-                    >
-                        Show More
-                    </motion.button>
-
                 </header>
 
                 {/* Video Grid */}
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-30"
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
+    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-30 justify-items-center"
+    variants={containerVariants}
+    initial="hidden"
+    animate="visible"
+>
+    {videos.map((video) => (
+        <motion.div key={video.id} variants={itemVariants}>
+            {/* Image Container with hover effects */}
+            <motion.div
+                className="relative rounded-2xl shadow-xl cursor-pointer group w-[325px] h-[417px]"
+                whileHover={{ y: -8 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+            >
+                <img
+                    src={video.imageUrl}
+                    alt={`Video thumbnail ${video.id}`}
+                    className="w-[325px] h-[417px] object-cover aspect-[3/4] group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                />
+                <SocialIcon platform={video.platform} />
+                <motion.p
+                    className="mt-4 text-left text-[#000000] font-['Inter'] font-sans text-[23px] leading-[36px] px-1"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
                 >
-                    {videos.map((video) => (
-                        <motion.div key={video.id} variants={itemVariants}>
-                            {/* Image Container with hover effects */}
-                            <motion.div
-                                className="relative rounded-2xl shadow-xl cursor-pointer group w-[325px] h-[417px]"
-                                whileHover={{ y: -8 }}
-                                transition={{ type: 'spring', stiffness: 300 }}
-                            >
-                                <img
-                                    src={video.imageUrl}
-                                    alt={`Video thumbnail ${video.id}`}
-                                    className="w-[325px] h-[417px] object-cover aspect-[3/4] group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                                />
-                                <SocialIcon platform={video.platform} />
-                                <motion.p
-                                    className="mt-4 text-left text-[#000000] font-['Inter'] font-sans text-[23px] leading-[36px] px-1"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4 }}
-                                >
-                                    {video.description}
-                                </motion.p>
+                    {video.description}
+                </motion.p>
+            </motion.div>
+        </motion.div>
+    ))}
+</motion.div>
 
-                            </motion.div>
-
-
-                        </motion.div>
-                    ))}
-                </motion.div>
             </div>
         </div>
     );
