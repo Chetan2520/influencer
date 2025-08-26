@@ -10,6 +10,8 @@ import CreativeSpark from './page/About';
 import Bucket from './page/Bucket';
 import Catherine from './page/Catherine';
 import ComedyPage from './page/Comedy';
+import Home from './page/Home';
+import  ContactForm  from './page/ContactForm';
 
 // --- Placeholder components for demonstration ---
 const ProductPage = ({ type }) => (
@@ -34,7 +36,7 @@ const App = () => {
 
       <main className="flex-grow ">
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/services" element={<InfluencerServices />} />
           <Route path="/about" element={<CreativeSpark />} />
           <Route path="/contact" element={<ContactUs />} />
@@ -44,8 +46,8 @@ const App = () => {
           <Route path="/catherine" element={<Catherine type="Catherine" />} />
           <Route path="/comedy" element={<ComedyPage type="Comedy" />} />
 
-          {/* <Route path="/join/influencer" element={<JoinPage type="Influencer" />} />
-          <Route path="/join/brand" element={<JoinPage type="Brand" />} /> */}
+          {/* <Route path="/join/influencer" element={<JoinPage type="Influencer" />} />*/}
+          <Route path="/join/influencer" element={<ContactForm />} />
 
           {/* Optional: Add a 404 Not Found page */}
           <Route path="*" element={

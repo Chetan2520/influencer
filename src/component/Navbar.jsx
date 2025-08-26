@@ -187,7 +187,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <div className="hidden md:block relative">
+                    <div className="hidden md:block relative z-0">
                         <button
                             className="font-['Inter'] bg-[#D62976] text-white font-bold text-xl px-8 py-4 rounded-2xl cursor-pointer flex items-center"
                             onClick={() => setJoinDropdown((v) => !v)}
@@ -199,8 +199,8 @@ const Navbar = () => {
                             </svg>
                         </button>
                         {joinDropdown && (
-                            <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg z-20">
-                                <NavLink to="/join/influencer" className="block px-6 py-3 text-[#1E252B] font-['Inter'] text-[16px] font-semibold hover:bg-pink-50 rounded-t-xl">
+                            <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg">
+                                <NavLink to="/join/influencer" className="block px-6 py-3 text-[#1E252B] font-['Inter'] text-[16px] font-semibold hover:bg-pink-50 rounded-t-xl ">
                                     As Influencer
                                 </NavLink>
                                 <NavLink to="/join/brand" className="block px-6 py-3 text-[#1E252B] font-['Inter'] text-[16px] font-semibold hover:bg-pink-50 rounded-b-xl">

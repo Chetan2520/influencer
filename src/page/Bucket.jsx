@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Heart, MessageCircle, Share2 } from 'lucide-react';
 import FeaturedInfluencers from '../component/Feature';
 
 const InfluencerMarketplace = () => {
